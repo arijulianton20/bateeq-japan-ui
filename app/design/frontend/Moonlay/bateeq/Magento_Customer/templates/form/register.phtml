@@ -101,8 +101,7 @@
     <div class="actions-toolbar">
         <div class="chekboxTandCRegis">
             <input type="checkbox" onchange="document.getElementById('Regis').disabled = !this.checked;" />
-            <a>私はウェブサイトを読んで同意します</a>
-            <a>利用規約*</a>
+            <a href="/terms">私は利用規約に同意します。</a>
         </div>
         <div class="primary btn-reg-div">
             <button type="submit" class="action submit primary btn-register" id="Regis" title="<?= $block->escapeHtmlAttr(__('Create an Account')) ?>" disabled><span><?= $block->escapeHtml(__('登録')) ?></span></button>

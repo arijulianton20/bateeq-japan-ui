@@ -4603,8 +4603,8 @@ new products will be created. Use this step to customize images and price for yo
 "Comment is missing","コメントがありません",module,Magento_Contact
 "Invalid email address","不正なメールアドレス",module,Magento_Contact
 "* Required Fields","* 必須項目",module,Magento_Contact
-"Write Us","ご連絡ください",module,Magento_Contact
-"Jot us a note and we’ll get back to you as quickly as possible.","お問い合わせいただければ、可能な限り早くお返事させていただきます。",module,Magento_Contact
+"Write Us","お問い合わせ",module,Magento_Contact
+"Jot us a note and we’ll get back to you as quickly as possible.","いただいたお問合せは、3営業日以内にご返答いたします。",module,Magento_Contact
 "Name","名前",module,Magento_Contact
 "Email","Eメール",module,Magento_Contact
 "Phone Number","電話番号",module,Magento_Contact
@@ -5018,7 +5018,7 @@ new products will be created. Use this step to customize images and price for yo
 "Account Created on (%1):","作成されたアカウント（%1）：",module,Magento_Customer
 "Account Created in:","作成されたアカウント:",module,Magento_Customer
 "Customer Group:","顧客グループ:",module,Magento_Customer
-"Default Billing Address","標準ご連絡先住所",module,Magento_Customer
+"Default Billing Address","ご連絡先住所",module,Magento_Customer
 "Sales Statistics","売上情報",module,Magento_Customer
 "Web Site","ウェブサイト",module,Magento_Customer
 "Store","店舗",module,Magento_Customer
@@ -5028,13 +5028,13 @@ new products will be created. Use this step to customize images and price for yo
 "All Store Views","全てのストアビュー",module,Magento_Customer
 "Change","変更",module,Magento_Customer
 "Manage Addresses","住所管理",module,Magento_Customer
-"Default Shipping Address","標準配送先住所",module,Magento_Customer
+"Default Shipping Address","配送先住所",module,Magento_Customer
 "Contact Information","連絡先情報",module,Magento_Customer
 "Change Password","パスワード変更",module,Magento_Customer
 "Newsletters","ニュースレター",module,Magento_Customer
 "You are subscribed to ""General Subscription""."," ""全般購読""を購読しています。",module,Magento_Customer
 "or","または",module,Magento_Customer
-"Default Addresses","標準住所",module,Magento_Customer
+"Default Addresses","住所",module,Magento_Customer
 "Change Billing Address","ご連絡先住所変更",module,Magento_Customer
 "You have no default billing address in your address book.","標準のご連絡先住所がアドレス帳にありません。",module,Magento_Customer
 "Change Shipping Address","配送先住所変更",module,Magento_Customer
@@ -5053,7 +5053,7 @@ new products will be created. Use this step to customize images and price for yo
 "Zip/Postal Code","郵便番号",module,Magento_Customer
 "Country","国",module,Magento_Customer
 "It's a default billing address.","標準の請求先",module,Magento_Customer
-"Use as my default billing address","標準ご連絡先住所として使用する",module,Magento_Customer
+"Use as my default billing address","ご連絡先住所として使用する",module,Magento_Customer
 "It's a default shipping address.","標準の配送先",module,Magento_Customer
 "Use as my default shipping address","標準の配送先として使用する",module,Magento_Customer
 "Save Address","住所を保存",module,Magento_Customer
@@ -5541,7 +5541,7 @@ Email template chosen based on theme fallback when ""Default"" option is selecte
 "Zip/Postal Code","郵便番号",module,Magento_CustomerCustomAttributes
 "Country","国",module,Magento_CustomerCustomAttributes
 "This is your default billing address.","これがデフォルトの請求先住所です。",module,Magento_CustomerCustomAttributes
-"Use as my default billing address","標準ご連絡先住所として使用する",module,Magento_CustomerCustomAttributes
+"Use as my default billing address","ご連絡先住所として使用する",module,Magento_CustomerCustomAttributes
 "This is your default shipping address.","これがデフォルトの配送先住所です。",module,Magento_CustomerCustomAttributes
 "Use as my default shipping address","標準の配送先として使用する",module,Magento_CustomerCustomAttributes
 "Save Address","住所を保存",module,Magento_CustomerCustomAttributes
@@ -5569,8 +5569,8 @@ Email template chosen based on theme fallback when ""Default"" option is selecte
 "Customer Address","顧客住所",module,Magento_CustomerCustomAttributes
 "Default Values","標準の値",module,Magento_CustomerCustomAttributes
 "Fax","Fax",module,Magento_CustomerCustomAttributes
-"Default Billing Address","標準ご連絡先住所",module,Magento_CustomerCustomAttributes
-"Default Shipping Address","標準配送先住所",module,Magento_CustomerCustomAttributes
+"Default Billing Address","ご連絡先住所",module,Magento_CustomerCustomAttributes
+"Default Shipping Address","配送先住所",module,Magento_CustomerCustomAttributes
 "Comma separated. Forbidden file extensions: %1.","カンマ区切り。禁止されているファイルの拡張子：%1。",module,Magento_CustomerCustomAttributes
 "The attribute couldn't be saved due to an error. Verify your information and try again. If the error persists, please try again later.","エラーのため属性を保存できませんでした。 情報を確認して、再度お試し下さい。 エラーが解決しない場合は、後で再度お試しください。",module,Magento_CustomerCustomAttributes
 "Please correct the value for file extensions.","ファイルの拡張子の値を修正してください。",module,Magento_CustomerCustomAttributes
@@ -5686,7 +5686,7 @@ Email template chosen based on theme fallback when ""Default"" option is selecte
 "If Customer Addresses match %1 of these Conditions:","顧客アドレスがこれらの条件の %1 と一致する場合:",module,Magento_CustomerSegment
 "Address Attributes","住所属性",module,Magento_CustomerSegment
 "Customer Address %1","顧客の住所 %1",module,Magento_CustomerSegment
-"Default Address","標準住所",module,Magento_CustomerSegment
+"Default Address","住所",module,Magento_CustomerSegment
 "Billing","請求",module,Magento_CustomerSegment
 "Shipping","配送",module,Magento_CustomerSegment
 "Customer Address %1 Default %2 Address","顧客アドレス%1デフォルト%2アドレス",module,Magento_CustomerSegment
@@ -9647,7 +9647,7 @@ If field is empty default value localhost will be saved.","Varnish上のキャ�
 "Back to Billing Agreements","支払合意に戻る",module,Magento_Paypal
 "Payment Method","お支払方法",module,Magento_Paypal
 "View","表示",module,Magento_Paypal
-"There are no billing agreements yet.","まだ支払合意がありません。",module,Magento_Paypal
+"There are no billing agreements yet.","まだご請求履歴がありません",module,Magento_Paypal
 "New Billing Agreement","新しい支払合意",module,Magento_Paypal
 "You will be redirected to the payment system website.","支払システムのウェブサイトに転送されます。",module,Magento_Paypal
 "-- Please Select --","-- 選択してください --",module,Magento_Paypal

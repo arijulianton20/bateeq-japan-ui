@@ -164,6 +164,12 @@ body.wishlist-index-index div.sidebar-additional,
 }
 
 @media only screen and (max-width: 767px) {
+  .modal-footer .action-secondary.action-dismiss,
+  .modal-footer .action-primary.action-accept {
+    width: 100%;
+    margin: 5px 0;
+  }
+
   body.wishlist-index-index div.box-tocart {
     margin: 0px;
   }
@@ -1513,8 +1519,8 @@ button.en {
   }
 
   .about {
-    margin-left: -15px;
-    margin-right: -15px;
+    margin-left: -20px;
+    margin-right: -20px;
   }
 
   .about p {
@@ -1551,6 +1557,15 @@ button.en {
 }
 
 /******************** Style for Moonlay/bateeq Theme *********************/
+
+body.catalogsearch-result-index .product-image-wrapper {
+  z-index: -1;
+}
+
+.products-list li.product-item {
+  margin-bottom: 10px;
+}
+
 // START about bateeq page
 .cms-about-bateeq .clearfix::after {
   content: "";
@@ -2422,6 +2437,11 @@ body.cms-home div.column.main div:nth-child(9) li a.product-item-link {
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
+  .modal-footer .action-secondary.action-dismiss,
+  .modal-footer .action-primary.action-accept {
+    width: 45%;
+  }
+
   // START about bateeq page
   .cms-about-bateeq article {
     padding: 0 125px;

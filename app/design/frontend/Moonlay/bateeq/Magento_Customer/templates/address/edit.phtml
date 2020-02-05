@@ -27,9 +27,8 @@
             <?= $block->getBlockHtml('formkey') ?>
             <input type="hidden" name="success_url" value="<?= $block->escapeUrl($block->getSuccessUrl()) ?>">
             <input type="hidden" name="error_url" value="<?= $block->escapeUrl($block->getErrorUrl()) ?>">
-            <?= $block->getNameBlockHtml() ?>
-
             
+            <?= $block->getNameBlockHtml() ?>
 
             <?php if ($_telephone->isEnabled()) : ?>
                 <?= $_telephone->setTelephone($block->getAddress()->getTelephone())->toHtml() ?>
