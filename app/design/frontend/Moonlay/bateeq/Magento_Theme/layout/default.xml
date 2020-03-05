@@ -10,16 +10,18 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <move element="logo" destination="header.panel" />
-        <move element="top.search" destination="header.panel" after="minicart" />
+        <move element="top.search" destination="header.panel"
+        after="minicart" />
         <move element="minicart" destination="header.panel" after="header.links" />
-        <!-- <move element="catalog.compare.link" destination="top.links" /> -->
-        <move element="top.container" destination="page.wrapper" after="header.container" />
         <move element="bateeq_logo" destination="footer" before="form.subscribe" />
         <referenceBlock name="catalog.compare.link" remove="true"/>
+        <referenceBlock name="form.subscribe" remove="true" />
         <referenceBlock name="page.main.title" display="false"/>
+        <referenceBlock name="footer_links" remove="true"/>
+        <referenceBlock name="store.menu">
+            <block class="Magento\Theme\Block\Html\Topmenu" name="catalog.topnav" template="Magento_Theme::html/topmenu.phtml" before="-"/>
+        </referenceBlock>
         <referenceContainer name="footer">
-            <block class="Moonlay\CustomHome\Block\SocMed" name="bateeq_socmed" template="Moonlay_CustomHome::socmed.phtml" />
-            <block class="Moonlay\CustomHome\Block\LangButton" name="bateeq_lang" template="Moonlay_CustomHome::langbutton.phtml" />
             <block class="Moonlay\CustomHome\Block\Logo" name="bateeq_logo" template="Moonlay_CustomHome::logo.phtml" />
         </referenceContainer>
     </body>

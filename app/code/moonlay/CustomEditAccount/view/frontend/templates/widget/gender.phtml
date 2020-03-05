@@ -13,10 +13,10 @@
                 <?php $options = $block->getGenderOptions(); ?>
                 <?php $value = $block->getGender(); ?>
                 <?php foreach ($options as $option) : ?>
-                    <option value="" disabled selected hidden>Gander</option>
+                    <option value="" disabled selected hidden>Gender</option>
                     <option value="<?= $block->escapeHtmlAttr($option->getValue()) ?>"<?= ($option->getValue() == $value) ? ' selected="selected"' : '' ?>><?= $block->escapeHtml(__($option->getLabel())) ?></option>
                 <?php endforeach;?>
             </select>
-        </span>        
+        </span>
     </div>
 </div>

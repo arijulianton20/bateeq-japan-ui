@@ -13,26 +13,23 @@
     <?= /* @noEscape */ $block->getBlockHtml('formkey'); ?>
     <fieldset class="fieldset create info margin-title-register">
 
-        <div class="title-register">
-            <h2 style="text-align: center;" class="jpn-reg">登録フォーム</h2>
-            <h2 style="text-align: center;" class="eng-reg">Register Form</h2>
-        </div>
+        
         
     </fieldset>
 
     <fieldset class="fieldset create account delete-margin">
 
-        <a class="fullname-register">Account</a>
+        <a class="fullname-register">アカウント</a>
 
         <div class="field required">
             <div class="control">
-                <input type="email" placeholder="Email Address" name="email" autocomplete="email" id="email_address" value="<?= $block->escapeHtmlAttr($block->getFormData()->getEmail()) ?>" title="<?= $block->escapeHtmlAttr(__('Email')) ?>" class="input-text input-text-login" data-mage-init='{"mage/trim-input":{}}' data-validate="{required:true, 'validate-email':true}">
+                <input type="email" placeholder="電子メールアドレス" name="email" autocomplete="email" id="email_address" value="<?= $block->escapeHtmlAttr($block->getFormData()->getEmail()) ?>" title="<?= $block->escapeHtmlAttr(__('Email')) ?>" class="input-text input-text-login" data-mage-init='{"mage/trim-input":{}}' data-validate="{required:true, 'validate-email':true}">
             </div>
         </div>
 
         <div class="field password required">
             <div class="control">
-                <input type="password" placeholder="Password" name="password" id="password"
+                <input type="password" placeholder="パスワード" name="password" id="password"
                        title="<?= $block->escapeHtmlAttr(__('Password')) ?>"
                        class="input-text input-text-login"
                        data-password-min-length="<?= $block->escapeHtmlAttr($block->getMinimumPasswordLength()) ?>"
@@ -53,19 +50,19 @@
 
         <div class="field confirmation required">
             <div class="control">
-                <input type="password" placeholder="Confrimation Password" name="password_confirmation" title="<?= $block->escapeHtmlAttr(__('Confirm Password')) ?>" id="password-confirmation" class="input-text input-text-login" data-validate="{required:true, equalTo:'#password'}" autocomplete="off">
+                <input type="password" placeholder="コンフィリメーション パスワード" name="password_confirmation" title="<?= $block->escapeHtmlAttr(__('Confirm Password')) ?>" id="password-confirmation" class="input-text input-text-login" data-validate="{required:true, equalTo:'#password'}" autocomplete="off">
             </div>
         </div>        
     </fieldset>
 
     <fieldset class="fieldset create info margin-title-register">
-        <a class="fullname-register">Fullname</a>
+        <a class="fullname-register">お名前</a>
 
         <input type="hidden" name="success_url" value="<?= $block->escapeUrl($block->getSuccessUrl()) ?>">
         <input type="hidden" name="error_url" value="<?= $block->escapeUrl($block->getErrorUrl()) ?>">
         <?= $block->getLayout()->createBlock(\Moonlay\CustomRegister\Block\Widget\Name::class)->setObject($block->getFormData())->setForceUseCustomerAttributes(true)->toHtml() ?>
         
-        <a class="fullname-register">Name (Kana)</a>
+        <!-- <a class="fullname-register">Name (Kana)</a> -->
         <?= $block->getChildHtml('form_additional_info') ?>
 
         <?php $_dob = $block->getLayout()->createBlock(\Magento\Customer\Block\Widget\Dob::class) ?>
@@ -78,7 +75,7 @@
         <?= $_taxvat->setTaxvat($block->getFormData()->getTaxvat())->toHtml() ?>
         <?php endif ?>
 
-        <a class="fullname-register">Gender</a>
+        <a class="fullname-register">性別</a>
 
         <?php $_gender = $block->getLayout()->createBlock(\Moonlay\CustomRegister\Block\Widget\Gender::class) ?>
         <?php if ($_gender->isEnabled()) : ?>
@@ -104,11 +101,10 @@
     <div class="actions-toolbar">
         <div class="chekboxTandCRegis">
             <input type="checkbox" onchange="document.getElementById('Regis').disabled = !this.checked;" />
-            <a>I have read and agree to the website</a>
-            <a>terms & conditions*</a>
+            <a href="/terms">私は利用規約に同意します。</a>
         </div>
         <div class="primary btn-reg-div">
-            <button type="submit" class="action submit primary btn-register" id="Regis" title="<?= $block->escapeHtmlAttr(__('Create an Account')) ?>" disabled><span><?= $block->escapeHtml(__('Register')) ?></span></button>
+            <button type="submit" class="action submit primary btn-register" id="Regis" title="<?= $block->escapeHtmlAttr(__('Create an Account')) ?>" disabled><span><?= $block->escapeHtml(__('登録')) ?></span></button>
         </div>
     </div>
 

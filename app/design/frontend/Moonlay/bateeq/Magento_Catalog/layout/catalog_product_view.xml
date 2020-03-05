@@ -6,5 +6,13 @@
     <referenceContainer name="product.info.main">
         <block class="Magento\Catalog\Block\Product\View" name="product.name" template="Magento_Catalog::productData.phtml" before="-" />
     </referenceContainer>
+    <referenceContainer name="product.info.details">
+        <block class="Magento\Catalog\Block\Product\View" name="size.tab" as="size" before="reviews.tab" template="Magento_Catalog::sizeTab.phtml" group="detailed_info">
+            <arguments>
+                <argument name="title" translate="true" xsi:type="string">Size Information</argument>
+                <argument name="sort_order" xsi:type="string">25</argument>
+            </arguments>
+        </block>
+    </referenceContainer>
     <move element="product.info.review" destination="product.info.main" after="product.info.price"/>
 </page>

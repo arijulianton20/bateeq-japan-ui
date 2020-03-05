@@ -1,0 +1,152 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// phpcs:disable Magento2.Templates.ThisInTemplate
+
+/** @var \Magento\Sales\Block\Order\History $block */
+?>
+<?php 
+$_orders = $block->getOrders();
+$fullFormatter = new IntlDateFormatter(
+    'ja_JP',
+    IntlDateFormatter::FULL,
+    IntlDateFormatter::NONE
+);
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$imageManager = $objectManager->get('\Magento\Catalog\Helper\Image');
+?>
+<?= $block->getChildHtml('info') ?>
+<?php if ($_orders && count($_orders)) : ?>
+    <div class="product info detailed">
+    <div class="product data items" data-mage-init='{"tabs":{"openedState":"active"}}'>
+    <?php 
+        $groupedItemByStatus = array();
+        foreach ($_orders as $_order) :
+            $status = $block->escapeHtml($_order->getStatusLabel());
+            if (array_key_exists($status, $groupedItemByStatus)) :
+                array_push($groupedItemByStatus[$status], $_order);
+            else :
+                $groupedItemByStatus[$status] = array( $_order );
+            endif;
+            
+        endforeach;
+        $indexTab = 0;
+        $size = count($groupedItemByStatus);
+        foreach ($groupedItemByStatus as $status => $orders) :
+            $indexTab = $indexTab + 1;
+            $selectorName = $size == $indexTab && $size > 1 ? 'end' : $indexTab;
+?>
+    <div class="data item title"
+            data-role="collapsible" id="tab-label-<?=  $indexTab ?>">
+        <a class="data switch index-<?= $selectorName ?>"
+            tabindex="-1"
+            data-toggle="trigger"
+            href="#<?= $status ?>"
+            id="tab-label-<?= $status ?>-title">
+            <?= /* @noEscape */ $status ?>
+        </a>
+    </div>
+    <div class="data item content" aria-labelledby="tab-label-<?= $status ?>-title" id="<?= $status ?>" data-role="content">
+    <div class="table-wrapper orders-history">
+        <table class="data table table-order-items history" id="my-orders-table">
+            <caption class="table-caption"><?= $block->escapeHtml(__('Orders')) ?></caption>
+            <thead>
+                <tr>
+                    <th scope="col" class="col id"><?= $block->escapeHtml(__('Order #')) ?></th>
+                    <th scope="col" class="col date"><?= $block->escapeHtml(__('Date')) ?></th>
+                    <?= $block->getChildHtml('extra.column.header') ?>
+                    <th scope="col" class="col shipping"><?= $block->escapeHtml(__('Ship To')) ?></th>
+                    <th scope="col" class="col total"><?= $block->escapeHtml(__('Order Total')) ?></th>
+                    <th scope="col" class="col actions"><?= $block->escapeHtml(__('Action')) ?></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php 
+                    foreach ($orders as $_order) : 
+                        $datetime = new DateTime($block->formatDate($_order->getCreatedAt()));
+                ?>
+                    <tr class="info-order">
+                        <td data-th="<?= $block->escapeHtml(__('Order #')) ?>" class="col id"><?= $block->escapeHtml($_order->getRealOrderId()) ?></td>
+                        <td data-th="<?= $block->escapeHtml(__('Date')) ?>" class="col date"><?= /* @noEscape */ $fullFormatter->format($datetime); ?></td>
+                        <?php $extra = $block->getChildBlock('extra.container'); ?>
+                        <?php if ($extra) : ?>
+                            <?php $extra->setOrder($_order); ?>
+                            <?= $extra->getChildHtml() ?>
+                        <?php endif; ?>
+                        <td data-th="<?= $block->escapeHtml(__('Ship To')) ?>" class="col shipping"><?= $_order->getShippingAddress() ? $block->escapeHtml($_order->getShippingAddress()->getName()) : '&nbsp;' ?></td>
+                        <td data-th="<?= $block->escapeHtml(__('Order Total')) ?>" class="col total"><?= /* @noEscape */ $_order->formatPrice($_order->getGrandTotal()) ?></td>
+                        <td data-th="<?= $block->escapeHtml(__('Actions')) ?>" class="col actions">
+                            <a href="<?= $block->escapeUrl($block->getViewUrl($_order)) ?>" class="action view">
+                                <span><?= $block->escapeHtml(__('View Order')) ?></span>
+                            </a>
+                            <?php if ($this->helper(\Magento\Sales\Helper\Reorder::class)->canReorder($_order->getEntityId())) : ?>
+                                <a href="#" data-post='<?= /* @noEscape */
+                                $this->helper(\Magento\Framework\Data\Helper\PostHelper::class)
+                                    ->getPostData($block->getReorderUrl($_order))
+                                ?>' class="action order">
+                                    <span><?= $block->escapeHtml(__('Reorder')) ?></span>
+                                </a>
+                            <?php endif; ?>
+                        </td>
+                    </tr>
+                    <?php
+                        $items = $_order->getItems();
+                        if ($items) :
+                            foreach ($items as $item) :
+                                if ($item->getParentItem()) :
+                                    continue;
+                                endif;
+                                $product = $item->getProduct();
+                                $imageUrl = $imageManager->init($product, 'product_thumbnail_image')->getUrl();
+                                $itemName = $item->getName();
+                                $itemPrice = $item->getPrice();
+                                $itemQty = $item->getQtyOrdered();
+                                $attributesInfo = array();
+                                $productOptions = $item->getProductOptions();
+                                if (array_key_exists("attributes_info",$productOptions)) :
+                                    $attributesInfo = $productOptions['attributes_info'];
+                                endif;
+                    ?>
+                    <tr class="detail-order">
+                        <td colspan=5>
+                            <div class="product-item left-side">
+                                <div class="product-item thumbnail">
+                                    <img src="<?= $imageUrl ?>">
+                                </div>
+                                <div class="product-item name">
+                                    <span><?= $itemName ?></span>
+                                </div>
+                            </div>
+                            <div class="product-item right-side">
+                                <div class="product-item right price">
+                                    <?= $_order->formatPrice($itemPrice) ?>
+                                </div>
+                                <?php foreach ($attributesInfo as $info) : ?>
+                                <div class="product-item right info <?= $info['label'] ?>">
+                                    <span><?= $info['label'] . ' ' . $info['value'] ?></span>
+                                </div>
+                                <?php endforeach; ?>
+                            </div>
+                        </td>
+                    </tr>
+                    <?php 
+                            endforeach;
+                        endif;
+                    ?>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+    </div>
+    <?php endforeach; ?>
+    </div>
+    </div>
+    <?php if ($block->getPagerHtml()) : ?>
+    <div class="order-products-toolbar toolbar bottom"><?= $block->getPagerHtml() ?></div>
+    <?php endif; ?>
+<?php else : ?>
+    <div class="message info empty"><span><?= $block->escapeHtml(__('You have placed no orders.')) ?></span></div>
+<?php endif ?>

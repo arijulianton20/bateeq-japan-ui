@@ -6,4 +6,5 @@
     <move element="breadcrumbs" destination="main" before="-" />
     <move element="page.main.title" destination="main" after="breadcrumbs" />
     <move element="category.view.container" destination="main" after="page.main.title" />
+    <move element="category.image" destination="columns" before="-" />
 </page>

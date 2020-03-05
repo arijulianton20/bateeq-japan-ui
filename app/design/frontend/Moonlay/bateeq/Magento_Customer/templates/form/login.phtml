@@ -17,20 +17,17 @@
             <?= $block->getBlockHtml('formkey') ?>
             <fieldset class="fieldset login" data-hasrequired="<?= $block->escapeHtml(__('* Required Fields')) ?>">
 
-                <div class="title-login">
-                    <h2 style="text-align: center;" class="jpn">ログインする</h2>
-                    <h2 style="text-align: center;" class="eng">Login</h2>
-                </div>
+                
 
                 <div class="field email required">
                     <div class="control">
-                        <input name="login[username]" placeholder="Email" value="<?= $block->escapeHtmlAttr($block->getUsername()) ?>" <?php if ($block->isAutocompleteDisabled()) : ?> autocomplete="off"<?php endif; ?> id="email" type="email" class="input-text input-text-login" title="<?= $block->escapeHtmlAttr(__('Email')) ?>" data-mage-init='{"mage/trim-input":{}}' data-validate="{required:true, 'validate-email':true}">
+                        <input name="login[username]" placeholder="メールアドレス" value="<?= $block->escapeHtmlAttr($block->getUsername()) ?>" <?php if ($block->isAutocompleteDisabled()) : ?> autocomplete="off"<?php endif; ?> id="email" type="email" class="input-text input-text-login" title="<?= $block->escapeHtmlAttr(__('Email')) ?>" data-mage-init='{"mage/trim-input":{}}' data-validate="{required:true, 'validate-email':true}">
                     </div>
                 </div>
 
                 <div class="field password required">
                     <div class="control">
-                        <input name="login[password]" type="password" placeholder="Password" <?php if ($block->isAutocompleteDisabled()) : ?> autocomplete="off"<?php endif; ?> class="input-text input-text-login" id="pass" title="<?= $block->escapeHtmlAttr(__('Password')) ?>" data-validate="{required:true}">
+                        <input name="login[password]" type="password" placeholder="パスワード" <?php if ($block->isAutocompleteDisabled()) : ?> autocomplete="off"<?php endif; ?> class="input-text input-text-login" id="pass" title="<?= $block->escapeHtmlAttr(__('Password')) ?>" data-validate="{required:true}">
                     </div>
                 </div>
                 
@@ -38,10 +35,10 @@
                 
                 <div>                    
                     <div class = "margin-frgt-andbtn-login">
-                        <a class="action remind Forgot-Password" href="<?= $block->escapeUrl($block->getForgotPasswordUrl()) ?>"><span><?= $block->escapeHtml(__('Forgot Password?')) ?></span></a>
+                        <a class="action remind Forgot-Password" href="<?= $block->escapeUrl($block->getForgotPasswordUrl()) ?>"><span><?= $block->escapeHtml(__('パスワードをお忘れですか?')) ?></span></a>
                     </div>
                     <div style = "text-align: center">
-                        <button type="submit" class="action login primary btn-login" name="send" id="send2"><span><?= $block->escapeHtml(__('Log In')) ?></span></button>
+                        <button type="submit" class="action login primary btn-login" name="send" id="send2"><span><?= $block->escapeHtml(__('ログインする')) ?></span></button>
                     </div>
                 </div>
 

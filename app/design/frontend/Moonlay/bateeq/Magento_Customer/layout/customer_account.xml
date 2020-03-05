@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd" label="Customer My Account (All Pages)" design_abstraction="custom">
+    <head>
+        <title>My Account</title>
+    </head>
+    <body>
+        <referenceBlock name="customer-account-navigation-product-reviews-link" remove="true"/>
+        <referenceBlock name="customer-account-navigation-newsletter-subscriptions-link" remove="true"/>
+        <referenceBlock name="customer-account-navigation-downloadable-products-link" remove="true"/>
+
+        <referenceBlock name="customer-account-navigation-account-link">
+            <arguments>
+                <argument name="label" xsi:type="string" translate="true">My Account</argument>
+                <argument name="path" xsi:type="string">customer/account</argument>
+                <argument name="sortOrder" xsi:type="number">250</argument>
+            </arguments>
+        </referenceBlock>
+        <referenceBlock class="Magento\Customer\Block\Account\SortLinkInterface" name="customer-account-navigation-address-link">
+            <arguments>
+                <argument name="label" xsi:type="string" translate="true">Address Book</argument>
+                <argument name="path" xsi:type="string">customer/address</argument>
+                <argument name="sortOrder" xsi:type="number">190</argument>
+            </arguments>
+        </referenceBlock>
+        <referenceBlock class="Magento\Customer\Block\Account\SortLinkInterface" name="customer-account-navigation-account-edit-link">
+            <arguments>
+                <argument name="label" xsi:type="string" translate="true">Account Setting</argument>
+                <argument name="path" xsi:type="string">customer/account/edit</argument>
+                <argument name="sortOrder" xsi:type="number">180</argument>
+            </arguments>
+        </referenceBlock>
+
+        <referenceBlock name="customer-account-navigation-orders-link">
+            <arguments>
+                <argument name="label" xsi:type="string" translate="true">Transaction History</argument>
+            </arguments>
+        </referenceBlock>
+
+        <referenceBlock name="customer-account-navigation-wish-list-link">
+            <arguments>
+                <argument name="label" xsi:type="string" translate="true">Wishlist</argument>
+            </arguments>
+        </referenceBlock>
+    </body>
+</page>

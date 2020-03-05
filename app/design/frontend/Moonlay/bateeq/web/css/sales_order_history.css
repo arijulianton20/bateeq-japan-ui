@@ -1,0 +1,112 @@
+table>thead>tr>th.col {
+    color: #979797;
+}
+
+table>tbody>tr>td.col {
+    color: #000000;
+}
+
+table>tbody>tr>td.col.id {
+    font-weight: 600;
+}
+
+.info-order {
+    border-top: solid 0.5px white;
+}
+
+/* .detail-order {
+    border-bottom: solid 0.5px #979797;
+} */
+
+.detail-order {
+    border-bottom: 0.5px solid #ccc;
+    border-top: 0.5px solid #ccc;
+}
+
+.product-item.name {
+    font-size: 15px;
+    font-size: 1.5rem;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    color: #000000;
+}
+
+.right.info {
+    font-size: 15px;
+    font-size: 1.5rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    color: #505050;
+}
+
+.right.price {
+    font-size: 15px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    color: #505050;
+}
+
+@media (min-width: 640px) {
+    #tab-label-1 {
+        margin-left: 3%;
+    }
+
+    .data.switch.index-1 {
+        border-top-left-radius: 5px;
+    }
+
+    .data.switch.index-end {
+        border-top-right-radius: 5px;
+    }
+
+    .data.item.content {
+        border-radius: 5px;
+    }
+
+    table>thead>tr>th:not(:last-child), table>tbody>tr>th:not(:last-child), 
+    table>tfoot>tr>th:not(:last-child), table>thead>tr>td:not(:last-child),
+    table>tbody>tr>td:not(:last-child), table>tfoot>tr>td:not(:last-child) {
+        border-right: 1px solid #ccc;
+    }
+
+    .table>tbody>tr>th, .table>tbody>tr>td {
+        border-top: none;
+    }
+
+    .product-item {
+        display: inline-flex;
+        margin-right: 1%;
+        line-height: 75px;
+    }
+    
+    .left-side {
+        float: left;
+        width: 45%;
+    }
+    
+    .right-side {
+        display: initial;
+        float: right;
+        width: 45%;
+    }
+    
+    .right {
+        float: right;
+        margin-right: 5%;
+    }
+
+    .right.info {
+        text-align: right;
+    }
+    
+    .right.price {
+        text-align: right;
+    }
+}

@@ -123,7 +123,7 @@ class Front extends Generic
                 'title' => __('Manage Customers'),
                 'values' => $yesnoSource,
                 'value' => $showAdminManageCustomers,
-                'note'  =>_('Admin Manage Customers'),
+                'note'  =>__('Admin Manage Customers'),
             ]
         );
         

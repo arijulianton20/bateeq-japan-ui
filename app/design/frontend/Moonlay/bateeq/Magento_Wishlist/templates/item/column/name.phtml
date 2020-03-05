@@ -11,7 +11,7 @@ $item = $block->getItem();
 $product = $item->getProduct();
 ?>
 <strong class="product-item-name title-item-list">
-    <a href="<?= $block->escapeUrl($block->getProductUrl($item)) ?>" title="<?= $block->escapeHtmlAttr($product->getName()) ?>" class="product-item-link">
+    <a href="<?= $block->escapeUrl($block->getProductUrl($item)) ?>" title="<?= $block->escapeHtmlAttr($product->getName()) ?>" class="product-item-link ellipsis-wish-list">
         <?= $block->escapeHtml($product->getName()) ?>
     </a>
 </strong>
