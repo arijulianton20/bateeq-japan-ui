@@ -1,0 +1,22 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Magento\Customer\Block\Widget\Gender $block */
+?>
+<div class="field gender<?= $block->isRequired() ? ' required' : ''?>">
+    <div class="control">
+        <span class="custom-dropdown">
+            <select id="<?= $block->escapeHtmlAttr($block->getFieldId('gender')) ?>" name="<?= $block->escapeHtmlAttr($block->getFieldName('gender')) ?>" title="<?= $block->escapeHtmlAttr($block->getStoreLabel('gender')) ?>"<?php if ($block->isRequired()) : ?> class="validate-select dropdown-register" data-validate="{required:true}"<?php endif; ?> plac style="border: 0px">
+                <?php $options = $block->getGenderOptions(); ?>
+                <?php $value = $block->getGender(); ?>
+                <?php foreach ($options as $option) : ?>
+                    <option value="" disabled selected hidden>Gander</option>
+                    <option value="<?= $block->escapeHtmlAttr($option->getValue()) ?>"<?= ($option->getValue() == $value) ? ' selected="selected"' : '' ?>><?= $block->escapeHtml(__($option->getLabel())) ?></option>
+                <?php endforeach;?>
+            </select>
+        </span>        
+    </div>
+</div>
